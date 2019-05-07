@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NM_Tool
 {
-    public class Class1
+    class GDIHelper
     {
     }
 }
