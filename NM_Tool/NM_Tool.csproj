@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\..\..\dll\Aspose.Cells\Aspose.Cells 17.7 for .NET\4.0\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="ReadWriteContext">
       <HintPath>..\..\..\dll\ReadWriteContext\bin\Debug\ReadWriteContext.dll</HintPath>
     </Reference>
@@ -46,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encryption\MD5.cs" />
+    <Compile Include="Excel\ExcelHelper.cs" />
     <Compile Include="Extension\ConvExtension.cs" />
     <Compile Include="Extension\IvyException.cs" />
     <Compile Include="GDIHelper\DrawHelper.cs" />
