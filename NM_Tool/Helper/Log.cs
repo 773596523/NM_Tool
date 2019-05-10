@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace NM_Tool.Helper
 {
-   /// <summary>
-   /// 日志
-   /// </summary>
+    /// <summary>
+    /// 日志
+    /// </summary>
     public class Log
     {
         static Log()
@@ -20,6 +20,7 @@ namespace NM_Tool.Helper
             }
         }
         public static string filepath = Application.StartupPath + "\\log\\";
+
         public static void writeLog(string msg)
         {
             try
@@ -32,12 +33,47 @@ namespace NM_Tool.Helper
 
                 File.AppendAllLines(filepath + fileName, mesList, Encoding.UTF8);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //throw ex;
             }
         }
+        public static void writeLog(string title, string msg)
+        {
+            try
+            {
+                string fileName = DateTime.Now.ToString("yyyyMMddHH") + ".txt";
+                List<string> mesList = new List<string>();
 
+                mesList.Add("**************************" + title + "   " + DateTime.Now.ToString() + "*************************");
+                mesList.Add(msg);
+
+                File.AppendAllLines(filepath + fileName, mesList, Encoding.UTF8);
+            }
+            catch (Exception)
+            {
+                //throw ex;
+            }
+        }
+        public static void writeLog(string position, string message, params string[] paras)
+        {
+            string fileName = DateTime.Now.ToString("yyyyMMddHH") + ".txt";
+            List<string> mesList = new List<string>();
+            mesList.Add("");
+            mesList.Add("");
+            mesList.Add("**************************" + position + DateTime.Now.ToString() + "*************************");
+            if (paras != null)
+            {
+                for (var i = 0; i < paras.Length; i++)
+                {
+                    mesList.Add("Paramter " + i.ToString() + ":" + paras[i]);
+                }
+            }
+            mesList.Add(message);
+            mesList.Add("**************************************************************************************");
+
+            File.AppendAllLines(filepath + fileName, mesList, Encoding.UTF8);
+        }
         public static void writeLog(Exception ex)
         {
             writeLog(ex.ToString());

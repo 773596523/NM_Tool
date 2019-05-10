@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -9,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NM_Tool.Extension
 {
-   /// <summary>
-   /// 常用转换
-   /// </summary>
+    /// <summary>
+    /// 常用转换
+    /// </summary>
     public static class ConvExtension
     {
 
@@ -186,8 +187,6 @@ namespace NM_Tool.Extension
             return time;
         }
 
-
-
         public static string Toyyyy_MM_dd_HH_mm_ss(this DateTime time)
         {
             return time.ToString("yyyy-MM-dd HH:mm:ss");
@@ -195,6 +194,41 @@ namespace NM_Tool.Extension
         public static string Toyyyy_MM_dd(this DateTime time)
         {
             return time.ToString("yyyy-MM-dd");
+        }
+
+        /// <summary>
+        /// 压缩字节
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static byte[] CompressBytes(this byte[] bytes)
+        {
+            using (MemoryStream compressStream = new MemoryStream())
+            {
+                using (var zipStream = new GZipStream(compressStream, CompressionMode.Compress))
+                    zipStream.Write(bytes, 0, bytes.Length);
+                return compressStream.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// 解压缩字节
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static byte[] Decompress(this byte[] bytes)
+        {
+            using (var compressStream = new MemoryStream(bytes))
+            {
+                using (var zipStream = new GZipStream(compressStream, CompressionMode.Decompress))
+                {
+                    using (var resultStream = new MemoryStream())
+                    {
+                        zipStream.CopyTo(resultStream);
+                        return resultStream.ToArray();
+                    }
+                }
+            }
         }
 
         #region 序列化

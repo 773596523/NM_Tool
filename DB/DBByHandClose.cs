@@ -80,7 +80,7 @@ namespace DB
                 }
                 bulk.WriteToServer(dt);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -670,7 +670,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -715,7 +715,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -761,7 +761,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -806,7 +806,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -852,7 +852,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -899,7 +899,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -946,7 +946,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -988,7 +988,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -1029,7 +1029,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -1070,7 +1070,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -1113,7 +1113,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -1157,7 +1157,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;
@@ -1201,7 +1201,7 @@ namespace DB
 
                 db.CommitTran();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 db.RollBackTran();
                 throw;

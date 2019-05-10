@@ -13,7 +13,7 @@ using NM_Tool.Extension;
 using NM_Tool.Helper;
 using ReadWriteContext;
 
-namespace NM_Tool.Helper
+namespace NM_Tool.Http
 {
     /// <summary>
     /// Http请求

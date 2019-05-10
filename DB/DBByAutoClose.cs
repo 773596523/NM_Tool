@@ -39,7 +39,7 @@ namespace DB
                 }
                 bulk.WriteToServer(dt);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
@@ -83,7 +83,7 @@ namespace DB
                 da.Fill(dt);
                 return dt;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -152,7 +152,7 @@ namespace DB
 
                 return dt;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -186,7 +186,7 @@ namespace DB
                 conn.Open();
                 return cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -216,7 +216,7 @@ namespace DB
                 return cmd.ExecuteScalar();
 
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -397,7 +397,7 @@ namespace DB
                 conn.Open();
                 cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -422,7 +422,7 @@ namespace DB
                 conn.Open();
                 rowNum = cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -478,7 +478,7 @@ namespace DB
                 conn.Open();
                 cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -549,7 +549,7 @@ namespace DB
                 conn.Open();
                 cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -635,7 +635,7 @@ namespace DB
                 conn.Open();
                 cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }
@@ -709,7 +709,7 @@ namespace DB
 
                 cmd.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 throw;
             }

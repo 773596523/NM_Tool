@@ -647,7 +647,7 @@ namespace DB
                 db.ExecuteScalar(sql, null);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
