@@ -910,25 +910,26 @@ namespace NM_Tool.Http
             return obj;
         }
 
-    }
-
-    public class UBinder : SerializationBinder
-    {
-        public override Type BindToType(string assemblyName, string typeName)
+        class UBinder : SerializationBinder
         {
-
-            try
-            {
-                Assembly ass = Assembly.GetExecutingAssembly();
-                Type t = ass.GetType(typeName);
-                return t;
-            }
-            catch (Exception)
+            public override Type BindToType(string assemblyName, string typeName)
             {
 
-                throw;
+                try
+                {
+                    Assembly ass = Assembly.GetExecutingAssembly();
+                    Type t = ass.GetType(typeName);
+                    return t;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
         }
     }
+
+
 
 }

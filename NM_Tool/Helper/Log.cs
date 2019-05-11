@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Windows.Forms;
 
 namespace NM_Tool.Helper
 {
@@ -19,7 +18,7 @@ namespace NM_Tool.Helper
                 Directory.CreateDirectory(filepath);
             }
         }
-        public static string filepath = Application.StartupPath + "\\log\\";
+        public static string filepath = AppSetting.path + "\\log\\";
 
         public static void writeLog(string msg)
         {

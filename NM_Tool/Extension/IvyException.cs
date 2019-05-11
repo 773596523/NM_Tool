@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace NM_Tool.Extension
 {
@@ -25,8 +24,6 @@ namespace NM_Tool.Extension
         {
             exception = ex;
             Log.writeLog(exception);
-
-            MessageBox.Show(Message);
         }
 
         private static Exception exception;

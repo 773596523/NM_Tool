@@ -35,14 +35,10 @@ namespace NM_Tool.Helper
             return WriteContext;
         }
 
-        /// <summary>
-        /// 写入json
-        /// </summary>
-        /// <param name="flag">标记</param>
-        /// <param name="message">信息</param>
-        public void Write(string flag, string message)
+
+        public void Write(string key, string value)
         {
-            WriteContext.Append(flag, message);
+            WriteContext.Append(key, value);
         }
         public void Write(string Key, DataTable dt)
         {

@@ -6,7 +6,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using System.Windows.Forms;
 
 namespace NM_Tool.Extension
 {
@@ -239,11 +238,11 @@ namespace NM_Tool.Extension
         /// <param name="name">文件名称</param>
         public static void SerializableObject<T>(this T obj, string name)
         {
-            if (!Directory.Exists(Application.StartupPath + "\\Resource\\"))
+            if (!Directory.Exists(AppSetting.path + "\\Resource\\"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\Resource\\");
+                Directory.CreateDirectory(AppSetting.path + "\\Resource\\");
             }
-            string file = Application.StartupPath + "\\Resource\\" + name + ".obj";
+            string file = AppSetting.path + "\\Resource\\" + name + ".obj";
             using (FileStream fs = new FileStream(file, FileMode.Create))
             {
                 BinaryFormatter bf = new BinaryFormatter();
@@ -260,11 +259,11 @@ namespace NM_Tool.Extension
         /// <returns></returns>
         public static T DeSerializableObject<T>(this T obj, string name)
         {
-            if (!Directory.Exists(Application.StartupPath + "\\Resource\\"))
+            if (!Directory.Exists(AppSetting.path + "\\Resource\\"))
             {
-                Directory.CreateDirectory(Application.StartupPath + "\\Resource\\");
+                Directory.CreateDirectory(AppSetting.path + "\\Resource\\");
             }
-            string file = Application.StartupPath + "\\Resource\\" + name + ".obj";
+            string file = AppSetting.path + "\\Resource\\" + name + ".obj";
             if (File.Exists(file))
             {
                 //不会锁文件

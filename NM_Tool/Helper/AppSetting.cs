@@ -7,6 +7,6 @@ namespace NM_Tool.Helper
 {
     public class AppSetting
     {
-        public static string svr = "";
+        public static string path = AppDomain.CurrentDomain.BaseDirectory;
     }
 }

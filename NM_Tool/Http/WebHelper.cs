@@ -10,6 +10,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using NM_Tool.Helper;
 using NM_Tool.Extension;
+using System.Runtime.Serialization;
 
 namespace NM_Tool.Http
 {
@@ -84,12 +85,9 @@ namespace NM_Tool.Http
         /// <summary>
         /// 写入json
         /// </summary>
-        /// <param name="flag">标记</param>
-        /// <param name="message">信息</param>
-        public void Write(string flag, string message)
+        public void Write(string key, string value)
         {
-            WriteContext.Append("Flag", flag);
-            WriteContext.Append("Message", message);
+            WriteContext.Append(key, value);
         }
         public void Write(string Key, DataTable dt)
         {
@@ -132,30 +130,30 @@ namespace NM_Tool.Http
         }
         public void WriteSuccess(string message)
         {
-            WriteContext.Append("Flag", "1");
-            WriteContext.Append("Message", message);
+            WriteContext.Append("errId", "1");
+            WriteContext.Append("errMsg", message);
         }
         public void WriteSuccess()
         {
-            WriteContext.Append("Flag", "1");
-            WriteContext.Append("Message", "成功");
+            WriteContext.Append("errId", "1");
+            WriteContext.Append("errMsg", "成功");
         }
         public void WriteInvalidParameters(string message)
         {
-            WriteContext.Append("Flag", "-4");
-            WriteContext.Append("Message", message);
+            WriteContext.Append("errId", "-4");
+            WriteContext.Append("errMsg", message);
         }
         public void WriteError(string msg)
         {
-            WriteContext.Append("Flag", "-1");
-            WriteContext.Append("Message", msg);
+            WriteContext.Append("errId", "-1");
+            WriteContext.Append("errMsg", msg);
         }
         public void WriteError(Exception ex)
         {
             Log.writeLog(ex.ToString());
 
-            WriteContext.Append("Flag", "-1");
-            WriteContext.Append("Message", ex.Message);
+            WriteContext.Append("errId", "-1");
+            WriteContext.Append("errMsg", ex.GetMessage());
         }
         public void WriteStrings(string[] keys, string[] values)
         {
@@ -664,6 +662,25 @@ namespace NM_Tool.Http
             if ((kv[k] is String) && (string)kv[k] == "") return DateTime.MinValue;
             else if ((kv[k] is String) && (string)kv[k] != "") return DateTime.Parse((string)kv[k]);
             return DateTime.Parse((string)kv[k]);
+        }
+
+        class UBinder : SerializationBinder
+        {
+            public override Type BindToType(string assemblyName, string typeName)
+            {
+
+                try
+                {
+                    Assembly ass = Assembly.GetExecutingAssembly();
+                    Type t = ass.GetType(typeName);
+                    return t;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
 
     }

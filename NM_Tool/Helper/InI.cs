@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace NM_Tool.Helper
 {
@@ -12,7 +11,7 @@ namespace NM_Tool.Helper
     /// </summary>
     public static class InI
     {
-        public static string filePath = Application.StartupPath + "\\IVYTALK.ini";
+        public static string filePath = AppSetting.path + "\\IVYTALK.ini";
 
         /// <summary>
         /// 写入ini配置
